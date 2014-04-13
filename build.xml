@@ -1,0 +1,27 @@
+<project name="JavaFXPackaging" default="default" basedir="."
+         xmlns:fx="javafx:com.sun.javafx.tools.ant">
+	<target name="default">
+		<taskdef resource="com/sun/javafx/tools/ant/antlib.xml"      
+    									        uri="javafx:com.sun.javafx.tools.ant"
+    									        classpath="C:/Program Files/Java/jdk1.8.0/lib/ant-javafx.jar"/>
+
+		<fx:deploy width="800" height="600" outdir="target" outfile="SyncFolders" nativeBundles="all">
+			<fx:platform basedir=""/>
+			<fx:info title="Sync folders" vendor="Gael COLIN">
+				<fx:icon href="Sync folders.ico"/>
+			</fx:info>
+			<fx:application name="Sync folders" version="1.0" mainClass="net.gcolin.sync.ui.Main"/>
+			<fx:preferences shortcut="true" install="true"/>
+			<fx:resources>
+				<fx:fileset dir="target" includes="syncfolders-1.0.jar"/>
+			</fx:resources>
+		</fx:deploy>
+	</target>
+	
+	<target name="releasepackage">
+		<zip destfile="target/release.zip">
+			<fileset file="target/syncfolders-1.0.jar"></fileset>
+			<fileset file="target/bundles/Sync folders-1.0.*"></fileset>
+		</zip>
+	</target>
+</project>

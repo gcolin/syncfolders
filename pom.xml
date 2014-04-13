@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.gcolin</groupId>
+	<artifactId>syncfolders</artifactId>
+	<name>${project.artifactId}</name>
+	<version>1.0</version>
+
+	<properties>
+		<staging.dir>${project.build.directory}/staging</staging.dir>
+		<izpack-standalone.version>4.0.1</izpack-standalone.version>
+		<app.group>${project.groupId}</app.group>
+		<app.title>${project.name}</app.title>
+		<app.subpath>${project.artifactId}-${project.version}</app.subpath>
+		<app.version>${project.version}</app.version>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>net.gcolin.sync.ui.Main</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

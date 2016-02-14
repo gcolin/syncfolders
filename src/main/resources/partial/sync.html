@@ -1,0 +1,30 @@
+<div class="alert alert-danger" role="alert" ng-show="error">
+  {{error}}
+</div>
+<form ng-show="!state">
+  <div class="form-group">
+    <label for="source">Source</label>
+    <input type="text" ng-model="source" class="form-control" id="source" placeholder="Folder path or ftp url">
+  </div>
+  <div class="form-group">
+    <label for="dest">Destination</label>
+    <input type="text" ng-model="dest" class="form-control" id="dest" placeholder="Folder path or ftp url">
+  </div>
+  <mycheck text="Check length" value="clength"/>
+  <mycheck text="Check time" value="ctime"/>
+  <mycheck text="Check content" value="ccontent"/>
+  <button type="button" ng-click="start()" class="btn btn-primary">Start</button>
+  <button type="button" ng-click="startSim()" class="btn btn-default">Simulate</button>
+</form>
+<ul>
+	<li ng-repeat="e in list">{{e}}</li>
+</ul>
+<div ng-show="state=='run'">
+	<h3>Running</h3>
+	<p>{{message}}</p>
+	
+</div>
+<div ng-show="state=='end'">
+	<h3>Done</h3>
+	<button type="button" ng-click="state=null;list=[]" class="btn btn-primary">Other synchronization</button>
+</div>
